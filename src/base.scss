@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+
+$screen-break-point:750px;
+:root {
+    --white: #fff;
+    --dark: #000;
+    --pink: #f67599;
+    --grey-d: #2a2a2a;
+    --grey-m: #333;
+    --grey: #808080;
+    --grey-l: #c8c8c8;
+
+  
+
+    --main-font-family: 'Noto Sans TC', sans-serif;
+}
+body {
+    --background-color: #fff;
+    --footer-background-color: #f6f7f8;
+    --main-text: #2a2a2a;
+
+    background-color: var(--background-color);
+    color: var(--main-text);
+    font-family: var(--main-font-family);
+    font-size: 16px;
+}
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  margin: 0px 15px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mr-auto {
+  margin-right: auto !important;
+}
+.cursor-point {
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}
+
+// --- RWD
+@mixin col-series($serial) {
+  display: flex;
+  flex-wrap: wrap;
+  $width: 100% / 12 * $serial;
+  flex: 0 0 $width;
+  align-content: flex-start;
+  max-width: $width;
+}
+
+.col {
+  @for $index from 1 to 13 {
+    &.col-#{$index} {
+      @include col-series($index);
+    }
+  }
+}
+@media screen and (min-width: $screen-break-point) {
+  .col {
+    @for $index from 1 to 13 {
+      &.col-lg-#{$index} {
+        @include col-series($index);
+      }
+    }
+  }
+}
+@media screen and (max-width: $screen-break-point) {
+  .col {
+    @for $index from 1 to 13 {
+      &.col-sm-#{$index} {
+        @include col-series($index);
+      }
+    }
+  }
+}
