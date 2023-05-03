@@ -1,51 +1,188 @@
-<section class="cart-container col col-lg-5 col-sm-12">
-    <h3 class="cart-title">購物籃</h3>
+import styles from './Cart.module.scss';
+import { useState } from 'react';
 
-    <section class="product-list col col-12" data-total-price="0">
-        <div class="product-container col col-12" data-count="0" data-price="3999">
-            <img class="img-container" src="./public/images/product-1.jpg" />
-            <div class="product-info">
-                <div class="product-name">破壞補丁修身牛仔褲</div>
-                <div class="product-control-container">
-                    <div class="product-control">
-                        <svg class="product-action minus">
-                            <use xlink:href="#svg-icon-minus"></use>
-                        </svg>
-                        <span class="product-count"></span>
-                        <svg class="product-action plus">
-                            <use xlink:href="#svg-icon-plus"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="price"></div>
+const productData = [
+    {
+        id: '1',
+        name: '貓咪罐罐2',
+        img: 'https://picsum.photos/300/300?text=1',
+        price: 100,
+        quantity: 2,
+    },
+    {
+        id: '2',
+        name: '貓咪干干',
+        img: 'https://picsum.photos/300/300?text=2',
+        price: 200,
+        quantity: 1,
+    },
+];
+
+// function ProductListItem({ icons, item, onCartItemChange }) {
+//     return (
+//         <div className={`${styles.productContainer} col col-12`} data-count="0" data-price={item.price}>
+//             <img className={styles.imgContainer} src={item.img} alt={item.name} />
+//             <div className={styles.productInfo}>
+//                 <div className={styles.productName}>{item.name}</div>
+//                 <div className={styles.productControlContainer}>
+//                     <div className={styles.productControl}>
+//                         <span
+//                             onClick={() => {
+//                                 if (onCartItemChange) {
+//                                     onCartItemChange({
+//                                         id: item.id,
+//                                         quantity: item - 1,
+//                                     });
+//                                 }
+//                             }}
+//                         >(-)
+//                             <svg className={`${styles.productAction} minus`}>
+//                                 <use xlinkHref={`${icons}#svg-icon-minus`}></use>
+//                             </svg>
+//                         </span>
+//                         <span className={styles.productCount}>{item.quantity}</span>
+//                         <span
+//                             onClick={() => {
+//                                 if (onCartItemChange) {
+//                                     onCartItemChange({
+//                                         id: item.id,
+//                                         quantity: item + 1,
+//                                     });
+//                                 }
+//                             }}
+//                         >(+)
+//                             <svg className={`${styles.productAction} plus`}>
+//                                 <use xlinkHref={`${icons}#svg-icon-plus`}></use>
+//                             </svg>
+//                         </span>
+//                     </div>
+//                 </div>
+//                 <div className={styles.price}></div>
+//             </div>
+//         </div>
+//     );
+// }
+// function UpdateCartItemQuantity({ itemId, newQuantity, currentCartItems, setCartItems }) {
+//     if (newQuantity <= 0) {
+//         return;
+//     }
+//     const updatedItems = currentCartItems.map((item) => {
+//         return item.id === itemId ? { ...item, quantity: newQuantity } : item;
+//     });
+//     setCartItems(updatedItems);
+// }
+
+// function Cart({ icons }) {
+
+//     const [items, setCartItems] = useState(productData);
+
+//     const totalPrice = calculateTotalPrice(items);
+//     return (
+//         <>
+//             <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
+//                 <h3 className={styles.cartTitle}>購物籃</h3>
+
+//                 <section className={`${styles.productList} col col-12`} data-total-price="0">
+//                     {items.map((item) => (
+//                         <ProductListItem
+//                             item={item}
+//                             icons={icons}
+//                             key={item.id}
+//                             onCartItemChange={updateCartItemQuantity}
+//                         />
+//                     ))}
+//                 </section>
+//                 <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
+//                     <div className={styles.text}>運費</div>
+//                     <div className={styles.price}>免費</div>
+//                 </section>
+//                 <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
+//                     <div className={styles.text}>小計</div>
+//                     <div className={styles.price}>${totalPrice}</div>
+//                 </section>
+//             </section>
+//         </>
+//     );
+// }
+//
+
+function ProductListItem({ icons, item, onCartItemsChange }) {
+    function handleQuantityChange(quantity) {
+        if (quantity < 0) {
+            return;
+        }
+        onCartItemsChange?.({ id: item.id, quantity });
+    }
+
+    return (
+        <div className={`${styles.productContainer} col col-12`} data-count="0" data-price={item.price}>
+            <img className={styles.imgContainer} src={item.img} alt={item.name} />
+            <div className={styles.productInfo}>
+                <div className={styles.productName}>{item.name}</div>
+                <ProductControl item={item} icons={icons} onQuantityChange={handleQuantityChange} />
+                <div className={styles.price}>{item.price * item.quantity}</div>
             </div>
         </div>
-        <div class="product-container col col-12" data-count="0" data-price="1299">
-            <img class="img-container" src="./public/images/product-2.jpg" />
-            <div class="product-info">
-                <div class="product-name">刷色直筒牛仔褲</div>
-                <div class="product-control-container">
-                    <div class="product-control">
-                        <svg class="product-action minus">
-                            <use xlink:href="#svg-icon-minus"></use>
-                        </svg>
-                        <span class="product-count"></span>
-                        <svg class="product-action plus">
-                            <use xlink:href="#svg-icon-plus"></use>
-                        </svg>
-                    </div>
-                </div>
-                <div class="price"></div>
+    );
+}
+
+function ProductControl({ item, icons, onQuantityChange }) {
+    return (
+        <div className={styles.productControlContainer}>
+            <div className={styles.productControl}>
+                <span onClick={() => onQuantityChange(item.quantity + 1)}>
+                    (+)
+                    <svg className={`${styles.productAction} minus`}>
+                        <use xlinkHref={`${icons}#svg-icon-minus`} />
+                    </svg>
+                </span>
+                <span className={styles.productCount}>{item.quantity}</span>
+                <span onClick={() => onQuantityChange(item.quantity - 1)}>
+                    (-)
+                    <svg className={`${styles.productAction} plus`}>
+                        <use xlinkHref={`${icons}#svg-icon-plus`} />
+                    </svg>
+                </span>
             </div>
         </div>
-    </section>
+    );
+}
 
-    <section class="cart-info shipping col col-12">
-        <div class="text">運費</div>
-        <div class="price"></div>
-    </section>
-    <section class="cart-info total col col-12">
-        <div class="text">小計</div>
-        <div class="price"></div>
-    </section>
-</section>;
+function Cart({ icons }) {
+    const [items, setItems] = useState(productData);
+
+    function handleCartItemsChange({ id, quantity }) {
+        setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)));
+    }
+
+    const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+    return (
+        <>
+            <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
+                <h3 className={styles.cartTitle}>購物籃</h3>
+                <section className={`${styles.productList} col col-12`} data-total-price="0">
+                    {items.map((item) => (
+                        <ProductListItem
+                            item={item}
+                            icons={icons}
+                            key={item.id}
+                            onCartItemsChange={handleCartItemsChange}
+                        />
+                    ))}
+                </section>
+                {/* --------- 結帳  -------- */}
+                <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
+                    <div className={styles.text}>運費</div>
+                    <div className={styles.price}>免費</div>
+                </section>
+                <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
+                    <div className={styles.text}>小計</div>
+                    <div className={styles.price}>${total}</div>
+                </section>
+            </section>
+        </>
+    );
+}
+
+export default Cart;

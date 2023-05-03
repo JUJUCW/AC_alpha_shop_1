@@ -56,7 +56,7 @@ li {
 @mixin col-series($serial) {
   display: flex;
   flex-wrap: wrap;
-  $width: 100% / 12 * $serial;
+  $width: calc(100% / 12) * $serial;
   flex: 0 0 $width;
   align-content: flex-start;
   max-width: $width;
