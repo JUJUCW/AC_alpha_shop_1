@@ -1,15 +1,15 @@
-section.progressControlContainer {
+.progressControlContainer {
     position: absolute;
-    left: 165px;
-
-    top: 770px;
+    top: 676px;
 }
-section.buttonGroup {
+.buttonGroup {
     padding-top: 30px;
     border-top: 1px solid #e6e6eb;
     width: 600px;
 
-    button {
+    
+}
+button {
         display: flex;
         align-items: center;
         height: 46px;
@@ -38,4 +38,3 @@ section.buttonGroup {
             }
         }
     }
-}

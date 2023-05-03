@@ -4,7 +4,7 @@ import { useState } from 'react';
 const productData = [
     {
         id: '1',
-        name: '貓咪罐罐2',
+        name: '貓咪罐罐',
         img: 'https://picsum.photos/300/300?text=1',
         price: 100,
         quantity: 2,
@@ -108,7 +108,7 @@ const productData = [
 
 function ProductListItem({ icons, item, onCartItemsChange }) {
     function handleQuantityChange(quantity) {
-        if (quantity < 0) {
+        if (quantity <= 0) {
             return;
         }
         onCartItemsChange?.({ id: item.id, quantity });
@@ -120,7 +120,7 @@ function ProductListItem({ icons, item, onCartItemsChange }) {
             <div className={styles.productInfo}>
                 <div className={styles.productName}>{item.name}</div>
                 <ProductControl item={item} icons={icons} onQuantityChange={handleQuantityChange} />
-                <div className={styles.price}>{item.price * item.quantity}</div>
+                <div className={styles.price}>$ {`${item.price * item.quantity}`}</div>
             </div>
         </div>
     );
@@ -130,17 +130,17 @@ function ProductControl({ item, icons, onQuantityChange }) {
     return (
         <div className={styles.productControlContainer}>
             <div className={styles.productControl}>
-                <span onClick={() => onQuantityChange(item.quantity + 1)}>
-                    (+)
+                <span onClick={() => onQuantityChange(item.quantity - 1)}>
+                    (-)
                     <svg className={`${styles.productAction} minus`}>
-                        <use xlinkHref={`${icons}#svg-icon-minus`} />
+                        <use xlinkHref={`${icons} #svg-icon-minus`} />
                     </svg>
                 </span>
                 <span className={styles.productCount}>{item.quantity}</span>
-                <span onClick={() => onQuantityChange(item.quantity - 1)}>
-                    (-)
+                <span onClick={() => onQuantityChange(item.quantity + 1)}>
+                    (+)
                     <svg className={`${styles.productAction} plus`}>
-                        <use xlinkHref={`${icons}#svg-icon-plus`} />
+                        <use xlinkHref={`${icons} #svg-icon-plus`} />
                     </svg>
                 </span>
             </div>
@@ -178,7 +178,7 @@ function Cart({ icons }) {
                 </section>
                 <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
                     <div className={styles.text}>小計</div>
-                    <div className={styles.price}>${total}</div>
+                    <div className={styles.price}>$ {`${total}`}</div>
                 </section>
             </section>
         </>

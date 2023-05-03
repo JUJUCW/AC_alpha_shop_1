@@ -1,24 +1,20 @@
 // --- variable
 $screen-break-point: 749.5px;
 // --- style
-section .cartContainer {
+.cartContainer {
     padding: 0px 24px;
     margin-top: 166px;
     border: 1px solid #f0f0f5;
     border-radius: 8px;
-    border: 1px solid #000;
-
-    h3.cartTitle {
-        display: flex;
-        flex: 0 0 100%;
-        margin: 32px 0px;
-        font-weight: 700;
-        font-size: 30px;
-        line-height: 24px;
-        border: 1px solid #000;
-    }
 }
-
+h3.cartTitle {
+    display: flex;
+    flex: 0 0 100%;
+    margin: 32px 0px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
 section.productList {
     .productContainer {
         display: flex;
@@ -30,6 +26,7 @@ section.productList {
             width: 100px;
             height: 100px;
             margin-right: 21px;
+            border-radius: 4px;
         }
         .productInfo {
             display: flex;
@@ -82,8 +79,6 @@ section.productList {
 
 section.cartInfo {
     border-top: 1px solid #f0f0f5;
-    padding-top: 16px;
-    padding-bottom: 32px;
     align-items: center;
     justify-content: space-between;
 
@@ -91,14 +86,17 @@ section.cartInfo {
         font-weight: normal;
         font-size: 14px;
         line-height: 20px;
-        color: var(--main-text);
+        color: var(--grey-d);
+        padding-top: 17px;
     }
 
     .price {
         font-weight: bold;
         font-size: 14px;
         line-height: 17px;
-        color: #000000;
+        color: var(--dark);
+        padding-top: 17px;
+        // margin-top: 32px;
     }
 }
 

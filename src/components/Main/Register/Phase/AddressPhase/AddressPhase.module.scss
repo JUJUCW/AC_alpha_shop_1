@@ -16,14 +16,17 @@ $screen-break-point: 750px;
 
 .inputGroup {
     margin-top: 24px;
+    height: 64px;
+;
+
     .inputLabel {
         font-weight: bold;
         font-size: 12px;
         line-height: 16px;
         color: #999;
         margin-bottom: 8px;
-
         margin-top: 20px;
+
     }
     input {
         @extend %select-style;
