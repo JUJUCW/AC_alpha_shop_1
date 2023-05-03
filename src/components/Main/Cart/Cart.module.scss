@@ -6,6 +6,9 @@ $screen-break-point: 749.5px;
     margin-top: 166px;
     border: 1px solid #f0f0f5;
     border-radius: 8px;
+    // border: 1px solid #000;
+    // position: absolute;
+    right: 0;
 }
 h3.cartTitle {
     display: flex;
@@ -61,6 +64,13 @@ section.productList {
                     width: 27px;
                     height: 26px;
                     cursor: pointer;
+                    background-color: #f0f0f5;
+                    border-radius: 50px;
+                    // & > svg {
+                    //     width: 11px;
+                    //     height: 11px;
+                    //     color: #000;
+                    // }
                 }
 
                 .productCount {

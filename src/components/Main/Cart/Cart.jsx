@@ -1,4 +1,7 @@
 import styles from './Cart.module.scss';
+// import Minus from 'src/icons/minus.svg'
+
+
 import { useState } from 'react';
 
 const productData = [
@@ -131,14 +134,15 @@ function ProductControl({ item, icons, onQuantityChange }) {
         <div className={styles.productControlContainer}>
             <div className={styles.productControl}>
                 <span onClick={() => onQuantityChange(item.quantity - 1)}>
-                    (-)
+                    
                     <svg className={`${styles.productAction} minus`}>
                         <use xlinkHref={`${icons} #svg-icon-minus`} />
+
                     </svg>
                 </span>
                 <span className={styles.productCount}>{item.quantity}</span>
                 <span onClick={() => onQuantityChange(item.quantity + 1)}>
-                    (+)
+                    
                     <svg className={`${styles.productAction} plus`}>
                         <use xlinkHref={`${icons} #svg-icon-plus`} />
                     </svg>
