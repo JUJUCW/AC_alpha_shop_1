@@ -1,14 +1,14 @@
 import './reset.css';
 import './base.scss';
 import icons from './public/icons/icons.svg';
-// import { Header } from './components/Header';
+import { Header } from './components';
 import { Main } from './components';
 // import { Footer } from './components/Footer';
 
 function App() {
     return (
         <div className="App">
-            {/* <Header  /> */}
+            <Header icons={icons} />
             <Main icons={icons} />
             {/* <Footer /> */}
         </div>
