@@ -1,40 +1,40 @@
 .progressControlContainer {
     position: absolute;
     top: 676px;
+    margin-top: 0;
+
 }
 .buttonGroup {
     padding-top: 30px;
     border-top: 1px solid #e6e6eb;
     width: 600px;
-
-    
 }
 button {
-        display: flex;
-        align-items: center;
-        height: 46px;
-        font-family: Inter, sans-serif;
-        font-size: 14px;
-        border-radius: 8px;
-        border-width: 0px;
-        padding: 0px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+    border-width: 0px;
+    padding: 0px;
 
-        & > svg {
-            width: 24px;
-            height: 24px;
-        }
+    & > svg {
+        width: 24px;
+        height: 24px;
+    }
 
-        &.next {
-            justify-content: center;
-            width: 174px;
-            font-weight: 500;
-            line-height: 17px;
-            background: var(--pink);
-            color: #ffffff;
-            margin-left: auto;
+    &.next {
+        justify-content: center;
+        width: 174px;
+        font-weight: 500;
+        line-height: 17px;
+        background: var(--pink);
+        color: #ffffff;
+        margin-left: auto;
 
-            > svg {
-                margin-left: 12px;
-            }
+        > svg {
+            margin-left: 12px;
         }
     }
+}
