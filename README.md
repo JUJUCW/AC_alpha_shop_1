@@ -8,9 +8,7 @@ This project was built by React, and has only a static webpage so far.
 
 1. Please ensure that npm and Node.js have been installed in the environment.
 2. Clone the project to local repository.
-```
-https://github.com/JUJUCW/AC_alpha_shop_1.git
-```
+  
 3. Use terminal to open the file in local, and input below instruction:
     ```
     $ npm install
