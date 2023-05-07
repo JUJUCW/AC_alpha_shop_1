@@ -23,14 +23,12 @@ $header-action-item-margin-x: 15px;
     height: var(--header-height);
     background-color: inherit;
     align-items: stretch;
-
 }
 .navbarMenu {
     display: flex;
     flex-grow: 1;
     background-color: inherit;
     align-items: center;
-
 }
 .navList {
     display: flex;
@@ -147,6 +145,7 @@ label.burgerContainer {
                     .navLink {
                         color: var(--grey);
                     }
+                    
                 }
 
                 .navLink {

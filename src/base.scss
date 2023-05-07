@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
 
-
-$screen-break-point:750px;
+$screen-break-point: 750px;
 :root {
     --white: #fff;
     --dark: #000;
@@ -11,8 +10,6 @@ $screen-break-point:750px;
     --grey: #808080;
     --grey-l: #c8c8c8;
 
-  
-
     --main-font-family: 'Noto Sans TC', sans-serif;
 }
 body {
@@ -20,10 +17,9 @@ body {
     --footer-background-color: #f6f7f8;
     --main-text: #2a2a2a;
     --product-action-bg: #f0f0f5;
-    --nav-icon:#2a2a2a;
-    --main-text:#2a2a2a;
-    --social-icon:#808080;
-
+    --nav-icon: #2a2a2a;
+    --main-text: #2a2a2a;
+    --social-icon: #808080;
 
     background-color: var(--background-color);
     color: var(--main-text);
@@ -33,62 +29,62 @@ body {
 ul,
 ol,
 li {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .container {
-  margin: 0px 15px;
+    margin: 0px 15px;
 }
 
 .mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .mr-auto {
-  margin-right: auto !important;
+    margin-right: auto !important;
 }
 .cursor-point {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .d-none {
-  display: none;
+    display: none;
 }
 
 // --- RWD
 @mixin col-series($serial) {
-  display: flex;
-  flex-wrap: wrap;
-  $width: calc(100% / 12) * $serial;
-  flex: 0 0 $width;
-  align-content: flex-start;
-  max-width: $width;
+    display: flex;
+    flex-wrap: wrap;
+    $width: calc(100% / 12) * $serial;
+    flex: 0 0 $width;
+    align-content: flex-start;
+    max-width: $width;
 }
 
 .col {
-  @for $index from 1 to 13 {
-    &.col-#{$index} {
-      @include col-series($index);
+    @for $index from 1 to 13 {
+        &.col-#{$index} {
+            @include col-series($index);
+        }
     }
-  }
 }
 @media screen and (min-width: $screen-break-point) {
-  .col {
-    @for $index from 1 to 13 {
-      &.col-lg-#{$index} {
-        @include col-series($index);
-      }
+    .col {
+        @for $index from 1 to 13 {
+            &.col-lg-#{$index} {
+                @include col-series($index);
+            }
+        }
     }
-  }
 }
 @media screen and (max-width: $screen-break-point) {
-  .col {
-    @for $index from 1 to 13 {
-      &.col-sm-#{$index} {
-        @include col-series($index);
-      }
+    .col {
+        @for $index from 1 to 13 {
+            &.col-sm-#{$index} {
+                @include col-series($index);
+            }
+        }
     }
-  }
 }
