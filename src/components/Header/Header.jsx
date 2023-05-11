@@ -23,7 +23,7 @@ function Header({ icons }) {
             <div className={`${styles.headerContainer} mx-auto`}>
                 {/* <!-- navbar-toggle --> */}
                 <input id="navbar-toggle" className={styles.navbarToggle} type="checkbox" />
-                <label for="navbar-toggle" className={styles.burgerContainer}>
+                <label htmlFor="navbar-toggle" className={styles.burgerContainer}>
                     <svg className={`${styles.iconToggle} cursor-point`}>
                         <use xlinkHref={`${icons}#svg-icon-toggle`}></use>
                     </svg>
@@ -37,7 +37,6 @@ function Header({ icons }) {
                         ))}
                     </ul>
                     <ul className={`${styles.navList} ${styles.siteActionList}`}>
-                      
                         {navItems.map(({ icon, className, id }) => (
                             <li key={icon} className={className} id={id}>
                                 <svg className={`${styles.navIcon} cursor-point`}>
@@ -45,7 +44,6 @@ function Header({ icons }) {
                                 </svg>
                             </li>
                         ))}
-
                     </ul>
                 </nav>
                 {/* <!-- logo --> */}

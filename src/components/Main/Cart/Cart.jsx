@@ -46,7 +46,6 @@ function ProductControl({ item, icons, onQuantityChange }) {
             <div className={styles.productControl}>
                 <span onClick={() => onQuantityChange(item.quantity - 1)}>
                     <svg className={`${styles.productAction} minus`}>
-                        {/* <use xlinkHref={`${icons}#svg-icon-right-arrow`} /> */}
                         <use xlinkHref={`${icons}#svg-icon-minus`} />
                     </svg>
                 </span>

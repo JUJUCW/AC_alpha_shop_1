@@ -1,5 +1,5 @@
-import AddressPhase from './AddressPhase/AddressPhase.jsx';
-// import CreditCardPhase from './CreditCardPhase/CreditCardPhase.jsx'
-// import ShippingPhase from './shippingPhase/ShippingPhase.jsx'
+import AddressPhase from './AddressPhase/AddressPhase';
+import CreditCardPhase from './CreditCardPhase/CreditCardPhase';
+import ShippingPhase from './ShippingPhase/ShippingPhase';
 
-export { AddressPhase };
+export { AddressPhase, CreditCardPhase, ShippingPhase };
