@@ -1,3 +1,6 @@
+// --- variable
+$screen-break-point: 749.5px;
+// --- style
 %done-phase {
     .icon {
         display: inline-block;
@@ -16,29 +19,30 @@
 }
 
 %current-text {
-    color: var(--dark);
+    color: var(--current-color);
 }
 %current-icon {
     @extend %current-text;
     background-color: transparent;
-    border: 1px solid var(--dark);
+    border: 1px solid var(--current-color);
     @extend %undone-phase;
 }
 %undone-text {
-    color: var(--grey-l);
+    color: var(--undone-color);
 }
 %undone-icon {
     @extend %undone-text;
     background-color: transparent;
-    border: 1px solid var(--grey-l);
+    border: 1px solid var(--undone-color);
+
     @extend %undone-phase;
 }
 %done-text {
     @extend %current-text;
 }
 %done-icon {
-    color: var(--progress-done-color);
-    background-color: transparent;
+    color: var(--white);
+    background-color: var(--dark);
     @extend %done-phase;
 }
 
@@ -48,7 +52,6 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 48px;
-
     .progressBar {
         display: flex;
         flex-grow: 1;
@@ -79,20 +82,41 @@
                 font-weight: 700;
                 line-height: 24px;
                 text-align: center;
+                color: inherit;
+            }
+            .icon {
+                width: inherit;
+                height: inherit;
             }
         }
         .progressLabel {
             font-weight: 400;
             line-height: 24px;
-            color: var(--dark);
+            color: var(--current-color);
         }
     }
 }
 
-//
+
 .progressContainer {
-    
-    .progressBar {
+    // step = 0
+    span[step='0'] {
+        &[dataphase='address'] {
+            .progressIcon {
+                @extend %current-icon;
+                background-color: var(--dark);
+                color: var(--white);
+            }
+        }
+        &[dataphase='shipping'],
+        &[dataphase='credit-card'] {
+            .progressIcon {
+                @extend %undone-icon;
+            }
+            .progressLabel {
+                @extend %undone-text;
+            }
+        }
         &[data-order='1'] {
             border-color: var(--dark);
         }
@@ -100,21 +124,66 @@
             border-color: var(--grey-l);
         }
     }
-    span[dataphase='address'] {
-        .progressIcon {
-            @extend %current-icon;
-            background-color: var(--dark);
+    // step = 1
+    span[step='1'] {
+        &[dataphase='address'] {
+            .progressIcon {
+                @extend %done-icon;
+                
+            }
+        }
+        &[dataphase='shipping'] {
+            .progressIcon {
+                @extend %current-icon;
+            }
+        }
+        &[dataphase='credit-card'] {
+            .progressIcon {
+                @extend %undone-icon;
+            }
+            .progressLabel {
+                @extend %undone-text;
+            }
+        }
+        &[data-order='1'],
+        &[data-order='2'] {
             border-color: var(--dark);
-            color: var(--white);
         }
     }
-    span[dataphase='shipping'],
-    span[dataphase='credit-card'] {
-        .progressIcon {
-            @extend %undone-icon;
+    // step = 2
+    span[step='2'] {
+        &[dataphase='address'],
+        &[dataphase='shipping'] {
+            .progressIcon {
+                @extend %done-icon;
+            }
+        }
+        &[dataphase='credit-card'] {
+            .progressIcon {
+                @extend %current-icon;
+            }
+        }
+    }
+}
+
+// --- RWD
+@media screen and (max-width: $screen-break-point) {
+    section.progressContainer {
+        margin-top: 24px;
+
+        .progressGroup {
+            .progressIcon {
+                width: 32px;
+                height: 32px;
+                margin-right: 0px;
+
+                .text {
+                    line-height: 32px;
+                }
+            }
         }
         .progressLabel {
-            color: var(--grey-l);
+            display: none;
         }
     }
 }

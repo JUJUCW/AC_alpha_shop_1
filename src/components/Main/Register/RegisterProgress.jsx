@@ -6,7 +6,7 @@ function Step({ icons, text, label, dataphase, step }) {
             <span className={styles.progressIcon}>
                 <span className={styles.text}>{text}</span>
                 <svg className={`${styles.icon} cursor-point`}>
-                    <use xlinkHref={`${icons}#svg-icon-pg-complete>`} />
+                    <use xlinkHref={`${icons}#svg-icon-right-arrow>`} />
                 </svg>
             </span>
             <span className={styles.progressLabel}>{label}</span>
