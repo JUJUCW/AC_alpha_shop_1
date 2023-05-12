@@ -23,6 +23,15 @@ button {
         width: 24px;
         height: 24px;
     }
+    &.prev{
+        background-color: transparent;
+        line-height: 20px;
+        font-weight: 400;
+
+        > svg{
+            margin-left: 12px;
+        }
+    }
 
     &.next {
         justify-content: center;
@@ -30,7 +39,7 @@ button {
         font-weight: 500;
         line-height: 17px;
         background: var(--pink);
-        color: #ffffff;
+        color:var(--white);
         margin-left: auto;
 
         > svg {

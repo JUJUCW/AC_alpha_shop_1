@@ -1,8 +1,8 @@
 import styles from './RegisterProgress.module.scss';
 
-function Step({ icons, text, label, dataphase }) {
+function Step({ icons, text, label, dataphase, step }) {
     return (
-        <span className={styles.progressGroup} dataphase={dataphase}>
+        <span className={styles.progressGroup} dataphase={dataphase} step={step}>
             <span className={styles.progressIcon}>
                 <span className={styles.text}>{text}</span>
                 <svg className={`${styles.icon} cursor-point`}>
@@ -14,18 +14,17 @@ function Step({ icons, text, label, dataphase }) {
     );
 }
 
-function RegisterProgress({ icons }) {
+function RegisterProgress({ icons, step }) {
     return (
         <section className={`${styles.progressContainer} col col-12`}>
-            <Step icons={icons} text="1" label="寄送地址" dataphase="address" />
+            <Step icons={icons} text="1" label="寄送地址" dataphase="address" step={step} />
+            <span className={styles.progressBar} data-order="1" step={step} />
 
-            <span className={styles.progressBar} data-order="1" />
+            <Step icons={icons} text="2" label="運送方式" dataphase="shipping" step={step} />
 
-            <Step icons={icons} text="2" label="運送方式" dataphase="shipping" />
+            <span className={styles.progressBar} data-order="2" step={step} />
 
-            <span className={styles.progressBar} data-order="2" />
-
-            <Step icons={icons} text="3" label="付款資訊" dataphase="credit-card" />
+            <Step icons={icons} text="3" label="付款資訊" dataphase="credit-card" step={step} />
         </section>
     );
 }

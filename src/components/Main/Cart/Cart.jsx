@@ -22,7 +22,7 @@ const productData = [
 
 function ProductListItem({ icons, item, onCartItemsChange }) {
     function handleQuantityChange(quantity) {
-        if (quantity <= 0) {
+        if (quantity < 0) {
             return;
         }
         onCartItemsChange?.({ id: item.id, quantity });
@@ -60,14 +60,16 @@ function ProductControl({ item, icons, onQuantityChange }) {
     );
 }
 
-function Cart({ icons }) {
+function Cart({ icons, shippingCost }) {
     const [items, setItems] = useState(productData);
 
     function handleCartItemsChange({ id, quantity }) {
         setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)));
     }
 
-    const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    
+    const total =
+        items.reduce((acc, item) => acc + item.price * item.quantity, 0) + (shippingCost === '$ 500' ? 500 : 0);
 
     return (
         <>
@@ -86,7 +88,7 @@ function Cart({ icons }) {
                 {/* --------- 結帳  -------- */}
                 <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
                     <div className={styles.text}>運費</div>
-                    <div className={styles.price}>免費</div>
+                    <div className={styles.price}>{shippingCost}</div>
                 </section>
                 <section className={`${styles.cartInfo} ${styles.total} col col-12`}>
                     <div className={styles.text}>小計</div>

@@ -32,7 +32,7 @@ const cities = [
     { id: 'KMN', city: '金門縣' },
     { id: 'LNN', city: '連江縣' },
 ];
-function AddressPhase() {
+function AddressPhase({ registerFormRef }) {
     return (
         <form className="col col-12" dataphase="address">
             <h3 className={styles.formTitle}>寄送地址</h3>
@@ -42,7 +42,11 @@ function AddressPhase() {
                     <div className={`${styles.inputGroup} `}>
                         <div className={styles.inputLabel}>稱謂</div>
                         <div className={styles.selectContainer}>
-                            <select>
+                            <select
+                                ref={(node) => {
+                                    registerFormRef.current.set('稱謂', node);
+                                }}
+                            >
                                 <option value="mr">先生</option>
                                 <option value="ms">女士</option>
                                 <option value="mx">不透露</option>
@@ -68,7 +72,12 @@ function AddressPhase() {
                     <div className={`${styles.inputGroup} `}>
                         <div className={styles.inputLabel}>縣市</div>
                         <div className={styles.selectContainer}>
-                            <select required>
+                            <select
+                                required
+                                ref={(node) => {
+                                    registerFormRef.current.set('縣市', node);
+                                }}
+                            >
                                 <option value="">請選擇縣市</option>
                                 {cities.map((city) => (
                                     <option key={city.id} value={city.id}>

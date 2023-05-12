@@ -1,7 +1,7 @@
 import InputBox from '../InputBox/InputBox';
 import styles from './CreditCardPhase.module.scss';
 
-function CreditCardPhase() {
+function CreditCardPhase({registerFormRef}) {
     return (
         <form className="col col-12" dataphase="credit-card">
             <h3 className={styles.formTitle}>付款資訊</h3>
@@ -12,6 +12,7 @@ function CreditCardPhase() {
                         placeholder="John Doe"
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
+                        registerFormRef={registerFormRef}
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -20,6 +21,7 @@ function CreditCardPhase() {
                         placeholder="1111 2222 3333 4444"
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
+                        registerFormRef={registerFormRef}
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -28,12 +30,14 @@ function CreditCardPhase() {
                         placeholder="MM/YY"
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
+                        registerFormRef={registerFormRef}
                     />
                     <InputBox
                         inputLabel="CVC / CCV"
                         placeholder="123"
                         layoutLarge="input-w-lg-3"
                         layoutSmall="input-w-sm-s3"
+                        registerFormRef={registerFormRef}
                     />
                 </div>
             </section>
