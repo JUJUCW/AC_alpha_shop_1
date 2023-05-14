@@ -13,7 +13,6 @@ function Main({ icons }) {
 
     const handleStepBtnChange = ({ step }) => setStep(step);
     const handleShippingOption = ({ price }) => setShippingCost(price);
-    
 
     return (
         <main className="siteMain">
@@ -24,16 +23,8 @@ function Main({ icons }) {
                     onShippingOption={handleShippingOption}
                     registerFormRef={registerFormRef}
                 />
-                <Cart
-                    icons={icons}
-                    shippingCost={shippingCost}
-                />
-                <Progress
-                    icons={icons}
-                    step={step}
-                    onStepBtnChange={handleStepBtnChange}
-
-                />
+                <Cart icons={icons} shippingCost={shippingCost} />
+                <Progress icons={icons} step={step} onStepBtnChange={handleStepBtnChange} />
             </div>
         </main>
     );

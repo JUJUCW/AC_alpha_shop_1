@@ -1,5 +1,4 @@
 import styles from './Cart.module.scss';
-// import Minus from 'src/icons/minus.svg'
 
 import { useState } from 'react';
 
@@ -67,12 +66,11 @@ function Cart({ icons, shippingCost }) {
         setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)));
     }
 
-    
     const total =
         items.reduce((acc, item) => acc + item.price * item.quantity, 0) + (shippingCost === '$ 500' ? 500 : 0);
 
     return (
-        <>
+    
             <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
                 <h3 className={styles.cartTitle}>購物籃</h3>
                 <section className={`${styles.productList} col col-12`} data-total-price="0">
@@ -86,7 +84,7 @@ function Cart({ icons, shippingCost }) {
                     ))}
                 </section>
                 {/* --------- 結帳  -------- */}
-                
+
                 <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
                     <div className={styles.text}>運費</div>
                     <div className={styles.price}>{shippingCost}</div>
@@ -96,7 +94,7 @@ function Cart({ icons, shippingCost }) {
                     <div className={styles.price}>$ {`${total}`}</div>
                 </section>
             </section>
-        </>
+    
     );
 }
 

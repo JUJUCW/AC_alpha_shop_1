@@ -1,8 +1,8 @@
 import './reset.css';
 import './base.scss';
 import icons from './public/icons/icons.svg';
-import { Header } from './components';
-import { Main } from './components';
+import Header from './components/Header/Header';
+import { Main } from './components/index';
 // import { Footer } from './components/Footer';
 
 function App() {
