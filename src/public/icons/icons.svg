@@ -76,7 +76,7 @@
       <circle cx="12" cy="12" r="12" fill="#333333" />
       <path
         d="M9.99997 16.1699L5.82997 11.9999L4.40997 13.4099L9.99997 18.9999L20.5 8.49994L19.09 7.08994L9.99997 16.1699Z"
-        fill="var(--white)" />
+        fill="#fff" />
     </symbol>
     <symbol viewBox="0 0 27 27" fill="none" id="svg-icon-plus">
       <path fill-rule="evenodd" clip-rule="evenodd"

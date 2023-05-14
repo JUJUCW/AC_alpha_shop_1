@@ -86,6 +86,7 @@ function Cart({ icons, shippingCost }) {
                     ))}
                 </section>
                 {/* --------- 結帳  -------- */}
+                
                 <section className={`${styles.cartInfo} ${styles.shipping} col col-12`}>
                     <div className={styles.text}>運費</div>
                     <div className={styles.price}>{shippingCost}</div>

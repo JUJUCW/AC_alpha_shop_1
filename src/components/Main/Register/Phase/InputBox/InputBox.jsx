@@ -10,12 +10,6 @@ function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerF
                 // ref={(node) => {
                 //     registerFormRef.current.set(inputLabel, node);
                 // }}
-                // ref={(node) => {
-                //     registerFormRef.current.set(inputLabel, node);
-                // }}
-                // ref={(node) => {
-                //     registerFormRef.current.set('縣市', node);
-                // }}
             />
         </div>
     );

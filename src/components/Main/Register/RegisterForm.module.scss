@@ -1,5 +1,18 @@
 .formContainer {
     margin-top: 64px;
     max-width: 540px;
+}
 
+.address,
+.shipping,
+.creditCard {
+    display: none;
+}
+
+div{
+    &.address[dataphase='0'],
+    &.shipping[dataphase='1'],
+    &.creditCard[dataphase='2']{
+        display: block;
+    }
 }

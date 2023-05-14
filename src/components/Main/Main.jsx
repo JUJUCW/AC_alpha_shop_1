@@ -13,20 +13,7 @@ function Main({ icons }) {
 
     const handleStepBtnChange = ({ step }) => setStep(step);
     const handleShippingOption = ({ price }) => setShippingCost(price);
-    const handleSubmit = () => {
-        let numOfFill = 0;
-        registerFormRef.current.forEach((value, key) => {
-            // console.log(`${key}:${value.value || '沒填'}`);
-            // numOfFill += 1;
-            if (value.value) {
-                console.log(`${key}:${value.value}`);
-            } else {
-                console.log(`${key}:沒填 `);
-                numOfFill += 1;
-            }
-        });
-        console.log(`共 ${numOfFill} 個欄位沒填`);
-    };
+    
 
     return (
         <main className="siteMain">
@@ -45,7 +32,7 @@ function Main({ icons }) {
                     icons={icons}
                     step={step}
                     onStepBtnChange={handleStepBtnChange}
-                    onSubmit={handleSubmit}
+
                 />
             </div>
         </main>
