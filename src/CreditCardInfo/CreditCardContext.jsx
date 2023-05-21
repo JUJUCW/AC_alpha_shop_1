@@ -44,7 +44,6 @@ function CardOwnerProvider({ children }) {
 
     return (
         <CreditCardContext.Provider value={
-            // { creditCardInfo, handleChange, handleSubmit }
             value
         }>
             {children}

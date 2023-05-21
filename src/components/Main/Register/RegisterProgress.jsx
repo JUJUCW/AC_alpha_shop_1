@@ -23,32 +23,14 @@ function RegisterProgress() {
     const { step } = useContext(ProductContextMain);
     return (
         <section className={`${styles.progressContainer} col col-12`}>
-            <Step
-                // icons={icons}
-                text="1"
-                label="寄送地址"
-                dataphase="address"
-                step={step}
-            />
+            <Step text="1" label="寄送地址" dataphase="address" step={step} />
             <span className={styles.progressBar} data-order="1" step={step} />
 
-            <Step
-                // icons={icons}
-                text="2"
-                label="運送方式"
-                dataphase="shipping"
-                step={step}
-            />
+            <Step text="2" label="運送方式" dataphase="shipping" step={step} />
 
             <span className={styles.progressBar} data-order="2" step={step} />
 
-            <Step
-                // icons={icons}
-                text="3"
-                label="付款資訊"
-                dataphase="credit-card"
-                step={step}
-            />
+            <Step text="3" label="付款資訊" dataphase="credit-card" step={step} />
         </section>
     );
 }

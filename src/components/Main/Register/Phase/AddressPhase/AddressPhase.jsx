@@ -35,7 +35,7 @@ const cities = [
     { id: 'LNN', city: '連江縣' },
 ];
 function AddressPhase() {
-    // { registerFormRef }
+
     const { registerFormRef } = useContext(ProductContextMain);
     return (
         <form className="col col-12" dataphase="address">

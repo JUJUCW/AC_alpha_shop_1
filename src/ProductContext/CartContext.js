@@ -18,16 +18,8 @@ const productsData = [
     },
 ];
 
-// const initCreditCardInfo = {
-//     cardOwnerName: 'John Doe',
-//     cardNum: '1111 2222 3333 4444',
-//     cardExpireDate: 'MM/YY',
-//     cardCvc: '123',
-// };
-
 const CartContext = createContext(productsData);
 function CartContextProvider({ children }) {
-    // const [currentProducts, setCurrentProducts] = useState(productsData);
     const [items, setItems] = useState(productsData);
     const { shippingFee } = useContext(ProductContextMain);
 
@@ -42,22 +34,13 @@ function CartContextProvider({ children }) {
     const total =
         items.reduce((acc, item) => acc + item.price * item.quantity, 0) + (shippingFee === '$ 500' ? 500 : 0);
 
-    // function isTotal() {
-    //     let total = 0;
-    //     currentProducts.map((product) => (total = total + product.price));
-    //     return total;
-    // }
-
     const value = {
         items,
         onQuantityChange: handleQuantityChange,
         total,
     };
 
-    return (
-        // <CartContext.Provider value={{ currentProducts, setCurrentProducts, isTotal }}>{children}</CartContext.Provider>
-        <CartContext.Provider value={value}>{children}</CartContext.Provider>
-    );
+    return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
 export default CartContext;

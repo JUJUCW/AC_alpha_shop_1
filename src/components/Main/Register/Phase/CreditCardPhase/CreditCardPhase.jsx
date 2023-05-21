@@ -3,7 +3,7 @@ import styles from './CreditCardPhase.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
 function CreditCardPhase(
-    // { registerFormRef }
+
 ) {
     const {registerFormRef} = useContext(ProductContextMain)
     return (

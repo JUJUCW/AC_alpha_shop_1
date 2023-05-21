@@ -5,14 +5,9 @@ import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
 import { CreditCardContext } from '../../../CreditCardInfo/CreditCardContext';
 
-
 function StepBtn() {
     const { icons } = useContext(ProductContextApp);
-    const {
-        step,
-        onStepBtnChange,
-        // onSubmit
-    } = useContext(ProductContextMain);
+    const { step, onStepBtnChange } = useContext(ProductContextMain);
 
     const { onSubmit } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
@@ -62,7 +57,6 @@ function StepBtn() {
                         className={`${styles.next} cursor-point`}
                         onClick={() =>
                             onSubmit?.({
-                                // count
                                 total,
                             })
                         }
@@ -91,12 +85,9 @@ function StepBtn() {
 }
 
 function Progress() {
-    // { icons, step, onStepBtnChange, onSubmit }
     return (
         <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
-            <StepBtn
-            // icons={icons} step={step} onStepBtnChange={onStepBtnChange} onSubmit={onSubmit}
-            />
+            <StepBtn />
         </section>
     );
 }

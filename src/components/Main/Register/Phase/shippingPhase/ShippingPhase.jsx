@@ -2,14 +2,7 @@ import styles from './ShippingPhase.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
 
-function ShippingDetails({
-    id,
-    name,
-    text,
-    period,
-    price,
-    // onShippingOption
-}) {
+function ShippingDetails({ id, name, text, period, price }) {
     const { onShippingOption } = useContext(ProductContextMain);
     return (
         <label className={`${styles.radioGroup} col col-12`}>
@@ -32,9 +25,7 @@ function ShippingDetails({
         </label>
     );
 }
-function ShippingPhase(
-    // { onShippingOption }
-) {
+function ShippingPhase() {
     return (
         <form className="col col-12" dataphase="shipping">
             <h3 className={styles.formTitle}>運送方式</h3>
@@ -45,7 +36,6 @@ function ShippingPhase(
                     text="標準運送"
                     period="約 3~7 個工作天"
                     price="Free"
-                    // onShippingOption={onShippingOption}
                 />
                 <ShippingDetails
                     id="shipping_dhl"
@@ -53,7 +43,6 @@ function ShippingPhase(
                     text="DHL 貨運"
                     period="48 小時內送達"
                     price="$ 500"
-                    // onShippingOption={onShippingOption}
                 />
             </section>
         </form>

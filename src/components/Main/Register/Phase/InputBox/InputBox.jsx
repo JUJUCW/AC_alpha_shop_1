@@ -7,9 +7,9 @@ function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerF
             <input
                 type="text"
                 placeholder={placeholder}
-                // ref={(node) => {
-                //     registerFormRef.current.set(inputLabel, node);
-                // }}
+                ref={(node) => {
+                    registerFormRef.current.set(inputLabel, node);
+                }}
             />
         </div>
     );

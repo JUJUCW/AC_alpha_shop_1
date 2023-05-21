@@ -4,24 +4,17 @@ import { useContext } from 'react';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 
 function RegisterForm() {
-    // { step, onShippingOption, registerFormRef }
     const { step } = useContext(ProductContextMain);
     return (
         <section className={`${styles.formContainer} col col-12`}>
             <div className={styles.address} dataphase={step}>
-                <AddressPhase
-                // registerFormRef={registerFormRef}
-                />
+                <AddressPhase />
             </div>
             <div className={styles.shipping} dataphase={step}>
-                <ShippingPhase
-                // onShippingOption={onShippingOption}
-                />
+                <ShippingPhase />
             </div>
             <div className={styles.creditCard} dataphase={step}>
-                <CreditCardPhase
-                // registerFormRef={registerFormRef}
-                />
+                <CreditCardPhase />
             </div>
         </section>
     );

@@ -5,28 +5,7 @@ import ProductContextApp from '../../../ProductContext/ProductContextApp';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
 
-// const productData = [
-//     {
-//         id: '1',
-//         name: '貓咪罐罐',
-//         img: 'https://picsum.photos/300/300?text=1',
-//         price: 100,
-//         quantity: 2,
-//     },
-//     {
-//         id: '2',
-//         name: '貓咪干干',
-//         img: 'https://picsum.photos/300/300?text=2',
-//         price: 200,
-//         quantity: 1,
-//     },
-// ];
-
-function ProductListItem({
-    // icons,
-    item,
-    // onCartItemsChange
-}) {
+function ProductListItem({ item }) {
     const { icons } = useContext(ProductContextApp);
     const { onQuantityChange } = useContext(CartContext);
 
@@ -117,29 +96,15 @@ function ProductListItem({
 // }
 
 function Cart() {
-    // { icons, shippingCost }
-    // const [items, setItems] = useState(productData);
     const { items, total } = useContext(CartContext);
     const { shippingFee } = useContext(ProductContextMain);
-
-    // function handleCartItemsChange({ id, quantity }) {
-    //     setItems((prevItems) => prevItems.map((item) => (item.id === id ? { ...item, quantity } : item)));
-    // }
-
-    // const total =
-    //     items.reduce((acc, item) => acc + item.price * item.quantity, 0) + (shippingCost === '$ 500' ? 500 : 0);
 
     return (
         <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
             <h3 className={styles.cartTitle}>購物籃</h3>
             <section className={`${styles.productList} col col-12`} data-total-price="0">
                 {items.map((item) => (
-                    <ProductListItem
-                        item={item}
-                        // icons={icons}
-                        key={item.id}
-                        // onCartItemsChange={handleCartItemsChange}
-                    />
+                    <ProductListItem item={item} key={item.id} />
                 ))}
             </section>
             {/* --------- 結帳  -------- */}
