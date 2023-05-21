@@ -1,6 +1,21 @@
 import styles from './Progress.module.scss';
+import { useContext } from 'react';
+import ProductContextApp from '../../../ProductContext/ProductContextApp';
+import ProductContextMain from '../../../ProductContext/ProductContextMain';
+import CartContext from '../../../ProductContext/CartContext';
+import { CreditCardContext } from '../../../CreditCardInfo/CreditCardContext';
 
-function StepBtn({ icons, step, onStepBtnChange, onSubmit }) {
+
+function StepBtn() {
+    const { icons } = useContext(ProductContextApp);
+    const {
+        step,
+        onStepBtnChange,
+        // onSubmit
+    } = useContext(ProductContextMain);
+
+    const { onSubmit } = useContext(CreditCardContext);
+    const { total } = useContext(CartContext);
     switch (step) {
         case 1:
             return (
@@ -43,7 +58,15 @@ function StepBtn({ icons, step, onStepBtnChange, onSubmit }) {
                         </svg>
                         上一步
                     </button>
-                    <button className={`${styles.next} cursor-point`} onClick={onSubmit}>
+                    <button
+                        className={`${styles.next} cursor-point`}
+                        onClick={() =>
+                            onSubmit?.({
+                                // count
+                                total,
+                            })
+                        }
+                    >
                         確認下單
                     </button>
                 </section>
@@ -67,10 +90,13 @@ function StepBtn({ icons, step, onStepBtnChange, onSubmit }) {
     }
 }
 
-function Progress({ icons, step, onStepBtnChange, onSubmit }) {
+function Progress() {
+    // { icons, step, onStepBtnChange, onSubmit }
     return (
         <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
-            <StepBtn icons={icons} step={step} onStepBtnChange={onStepBtnChange} onSubmit={onSubmit} />
+            <StepBtn
+            // icons={icons} step={step} onStepBtnChange={onStepBtnChange} onSubmit={onSubmit}
+            />
         </section>
     );
 }

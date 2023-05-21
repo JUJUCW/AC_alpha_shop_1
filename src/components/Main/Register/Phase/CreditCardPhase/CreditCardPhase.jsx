@@ -1,7 +1,11 @@
 import InputBox from '../InputBox/InputBox';
 import styles from './CreditCardPhase.module.scss';
-
-function CreditCardPhase({registerFormRef}) {
+import { useContext } from 'react';
+import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
+function CreditCardPhase(
+    // { registerFormRef }
+) {
+    const {registerFormRef} = useContext(ProductContextMain)
     return (
         <form className="col col-12" dataphase="credit-card">
             <h3 className={styles.formTitle}>付款資訊</h3>

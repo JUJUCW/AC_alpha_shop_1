@@ -1,3 +1,4 @@
+$screen-break-point:750px;
 .progressControlContainer {
     position: absolute;
     top: 676px;
@@ -46,4 +47,25 @@ button {
             margin-left: 12px;
         }
     }
+}
+
+
+// --- RWD
+@media screen and (max-width: $screen-break-point) {
+  section.progressControlContainer {
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 40px;
+  }
+  section.buttonGroup {
+    button.next {
+      width: 156px;
+    }
+
+    &[dataphase="address"] {
+      button.next {
+        width: 100%;
+      }
+    }
+  }
 }

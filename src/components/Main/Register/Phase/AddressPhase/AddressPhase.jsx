@@ -1,5 +1,7 @@
 import styles from './AddressPhase.module.scss';
 import InputBox from '../InputBox/InputBox';
+import { useContext } from 'react';
+import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
 
 const cities = [
     { id: 'KLU', city: '基隆市' },
@@ -32,7 +34,9 @@ const cities = [
     { id: 'KMN', city: '金門縣' },
     { id: 'LNN', city: '連江縣' },
 ];
-function AddressPhase({ registerFormRef }) {
+function AddressPhase() {
+    // { registerFormRef }
+    const { registerFormRef } = useContext(ProductContextMain);
     return (
         <form className="col col-12" dataphase="address">
             <h3 className={styles.formTitle}>寄送地址</h3>
@@ -53,18 +57,19 @@ function AddressPhase({ registerFormRef }) {
                             </select>
                         </div>
                     </div>
+
                     <div className={`${styles.inputGroup} `}>
-                        <InputBox inputLabel="姓名" placeholder="請輸入姓名" />
+                        <InputBox inputLabel="姓名" placeholder="請輸入姓名" registerFormRef={registerFormRef} />
                     </div>
                 </div>
 
                 {/* row 2 */}
                 <div className={`${styles.row} `}>
                     <div className={`${styles.inputGroup} `}>
-                        <InputBox inputLabel="電話" placeholder="請輸入電話" />
+                        <InputBox inputLabel="電話" placeholder="請輸入電話" registerFormRef={registerFormRef} />
                     </div>
                     <div className={`${styles.inputGroup} `}>
-                        <InputBox inputLabel="Email" placeholder="請輸入電子郵件" />
+                        <InputBox inputLabel="Email" placeholder="請輸入電子郵件" registerFormRef={registerFormRef} />
                     </div>
                 </div>
                 {/* row 3 */}
@@ -88,7 +93,7 @@ function AddressPhase({ registerFormRef }) {
                         </div>
                     </div>
                     <div className={`${styles.inputGroup} `}>
-                        <InputBox inputLabel="地址" placeholder="請輸入地址" />
+                        <InputBox inputLabel="地址" placeholder="請輸入地址" registerFormRef={registerFormRef} />
                     </div>
                 </div>
             </section>
