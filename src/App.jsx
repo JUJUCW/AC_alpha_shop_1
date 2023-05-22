@@ -12,8 +12,12 @@ function App() {
         <ProductContextAppProvider>
             {/* <CardOwnerProvider> */}
                 <div className="App">
-                    <Header icons={icons} />
-                    <Main icons={icons} />
+                    <Header
+                        icons={icons}
+                    />
+                    <Main
+                        icons={icons}
+                    />
                     {/* <Footer /> */}
                 </div>
             {/* </CardOwnerProvider> */}

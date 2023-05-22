@@ -2,10 +2,12 @@ import InputBox from '../InputBox/InputBox';
 import styles from './CreditCardPhase.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
-function CreditCardPhase(
+// import { CardOwnerProvider } from '../../../../../CreditCardInfo/CreditCardContext';
 
-) {
-    const {registerFormRef} = useContext(ProductContextMain)
+
+function CreditCardPhase() {
+    const { registerFormRef } = useContext(ProductContextMain);
+    // const {handleChange}=useContext(CardOwnerProvider)
     return (
         <form className="col col-12" dataphase="credit-card">
             <h3 className={styles.formTitle}>付款資訊</h3>
@@ -17,6 +19,7 @@ function CreditCardPhase(
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
+                        nameContext="cardOwnerName"
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -26,6 +29,7 @@ function CreditCardPhase(
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
+                        nameContext="cardNum"
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -35,6 +39,7 @@ function CreditCardPhase(
                         layoutLarge="input-w-lg-4"
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
+                        nameContext="cardExpireDate"
                     />
                     <InputBox
                         inputLabel="CVC / CCV"
@@ -42,6 +47,7 @@ function CreditCardPhase(
                         layoutLarge="input-w-lg-3"
                         layoutSmall="input-w-sm-s3"
                         registerFormRef={registerFormRef}
+                        nameContext="cardCvc"
                     />
                 </div>
             </section>
