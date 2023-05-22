@@ -3,14 +3,21 @@ import { useContext } from 'react';
 import ProductContextApp from '../../../ProductContext/ProductContextApp';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
-import { CreditCardContext } from '../../../CreditCardInfo/CreditCardContext';
+import {
+    CreditCardContext,
+    // CardOwnerProvider
+} from '../../../CreditCardInfo/CreditCardContext';
 
 function StepBtn() {
     const { icons } = useContext(ProductContextApp);
     const { step, onStepBtnChange } = useContext(ProductContextMain);
 
-    const { onSubmit } = useContext(CreditCardContext);
+    const {
+        // creditCardInfo, test,
+        onSubmit } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
+    // console.log('creditcardinfo', creditCardInfo);
+    // console.log('test', test);
     switch (step) {
         case 1:
             return (
@@ -55,11 +62,14 @@ function StepBtn() {
                     </button>
                     <button
                         className={`${styles.next} cursor-point`}
-                        onClick={() =>
+                        onClick={() => {
+                            console.log('確認下單被點擊');
                             onSubmit?.({
                                 total,
-                            })
-                        }
+                            });
+                            console.log(total);
+                            console.log('點擊');
+                        }}
                     >
                         確認下單
                     </button>
@@ -86,9 +96,11 @@ function StepBtn() {
 
 function Progress() {
     return (
-        <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
-            <StepBtn />
-        </section>
+        // <CardOwnerProvider>
+            <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
+                <StepBtn />
+            </section>
+        // </CardOwnerProvider>
     );
 }
 export default Progress;

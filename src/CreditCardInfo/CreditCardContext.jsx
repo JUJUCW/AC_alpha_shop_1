@@ -3,10 +3,10 @@ const CreditCardContext = createContext('');
 
 function CardOwnerProvider({ children }) {
     const [creditCardInfo, setCreditCardInfo] = useState({
-        cardOwnerName: 'John Doe 1',
-        cardNum: '1111 2222 3333 4444',
-        cardExpireDate: 'MM/YY',
-        cardCvc: '123',
+        cardOwnerName: '',
+        cardNum: '',
+        cardExpireDate: '',
+        cardCvc: '',
     });
 
     function handleChange(e) {
@@ -27,7 +27,7 @@ function CardOwnerProvider({ children }) {
         setCreditCardInfo(updatedCreditCardInfo);
     }
     function handleSubmit(totalPrice) {
-        console.log('is click?')
+        console.log('is click?');
         console.log(`
           持卡人姓名：${creditCardInfo.cardOwnerName}
           有效期限：${creditCardInfo.cardExpireDate}
@@ -38,17 +38,10 @@ function CardOwnerProvider({ children }) {
     const value = {
         creditCardInfo,
         onChange: handleChange,
-        onSubmit:handleSubmit
-        
+        onSubmit: handleSubmit,
     };
 
-    return (
-        <CreditCardContext.Provider value={
-            value
-        }>
-            {children}
-        </CreditCardContext.Provider>
-    );
+    return <CreditCardContext.Provider value={value}>{children}</CreditCardContext.Provider>;
 }
 
 export { CardOwnerProvider, CreditCardContext };
