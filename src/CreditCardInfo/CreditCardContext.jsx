@@ -16,12 +16,12 @@ function CardOwnerProvider({ children }) {
             ...prevCreditCardInfo,
             [name]: value,
         }));
+
     }
     function handleSubmit(totalPrice) {
-        console.log('CreditCard is click?');
         console.log('totalPrice', totalPrice);
         console.log('CreditCardInfo', creditCardInfo);
-        console.log('cardOwnerName', creditCardInfo.cardOwnerName);
+        
         console.log(`
           持卡人姓名： ${creditCardInfo.cardOwnerName}
           有效期限： ${creditCardInfo.cardExpireDate}
