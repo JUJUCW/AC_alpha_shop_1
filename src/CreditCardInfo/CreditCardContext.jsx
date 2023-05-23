@@ -21,7 +21,7 @@ function CardOwnerProvider({ children }) {
     function handleSubmit(totalPrice) {
         console.log('totalPrice', totalPrice);
         console.log('CreditCardInfo', creditCardInfo);
-        
+        console.log('setCreditCardInfo', setCreditCardInfo);
         console.log(`
           持卡人姓名： ${creditCardInfo.cardOwnerName}
           有效期限： ${creditCardInfo.cardExpireDate}

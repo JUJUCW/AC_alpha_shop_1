@@ -1,11 +1,11 @@
 import styles from './InputBox.module.scss';
-// import { useContext } from 'react';
-// import { CreditCardContext } from '../../../../../CreditCardInfo/CreditCardContext';
+import { useContext } from 'react';
+import { CreditCardContext } from '../../../../../CreditCardInfo/CreditCardContext';
 
 function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerFormRef,
-    // nameContext
+
 }) {
-    // const { handleChange } = useContext(CreditCardContext);
+    const { onChange } = useContext(CreditCardContext);
 
     return (
         <div className={`${styles.inputGroup} ${layoutLarge} ${layoutSmall}`}>
@@ -17,7 +17,7 @@ function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerF
                     registerFormRef.current.set(inputLabel, node);
                 }}
                 // name={nameContext}
-                // onChange={(e) => handleChange(e)}
+                onChange={onChange}
 
             />
         </div>
