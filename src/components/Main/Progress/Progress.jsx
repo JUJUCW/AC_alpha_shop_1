@@ -10,12 +10,12 @@ function StepBtn() {
     const { step, onStepBtnChange } = useContext(ProductContextMain);
 
     const {
-        // creditCardInfo,
+        creditCardInfo,
         // test,
         onSubmit,
     } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
-    // console.log('credit card info', creditCardInfo);
+    console.log('credit card info', creditCardInfo);
     // console.log('test', test);
     switch (step) {
         case 1:
@@ -63,10 +63,11 @@ function StepBtn() {
                         className={`${styles.next} cursor-point`}
                         onClick={() => {
                             console.log('progress 確認下單被點擊');
-                            onSubmit?.({
-                                total: total,
-                            });
-                            console.log('progress', total);
+                            // onSubmit?.({
+                            //     total: total,
+                            // });
+                            // console.log('progress', total);
+                            onSubmit({total})
                         }}
                     >
                         確認下單
