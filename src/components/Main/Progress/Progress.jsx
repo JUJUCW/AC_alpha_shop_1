@@ -3,17 +3,14 @@ import { useContext } from 'react';
 import ProductContextApp from '../../../ProductContext/ProductContextApp';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
-import { CreditCardContext} from '../../../CreditCardInfo/CreditCardContext';
+import { CreditCardContext } from '../../../CreditCardInfo/CreditCardContext';
 
 function StepBtn() {
-
     const { icons } = useContext(ProductContextApp);
     // todo must rename for vars
     const { step, onStepBtnChange } = useContext(ProductContextMain);
 
-    const {
-        handleSubmit,
-    } = useContext(CreditCardContext);
+    const { handleSubmit } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
     switch (step) {
         case 1:
@@ -90,9 +87,9 @@ function StepBtn() {
 
 function Progress() {
     return (
-            <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
-                <StepBtn />
-            </section>
+        <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
+            <StepBtn />
+        </section>
     );
 }
 export default Progress;

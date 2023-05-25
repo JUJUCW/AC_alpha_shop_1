@@ -10,9 +10,9 @@ function Main() {
         <main className="siteMain">
             <div className="mainContainer">
                 <CreditCardProvider>
-                <Register />
-                <Cart />
-                <Progress />
+                    <Register />
+                    <Cart />
+                    <Progress />
                 </CreditCardProvider>
             </div>
         </main>

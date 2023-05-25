@@ -2,8 +2,6 @@ import InputBox from '../InputBox/InputBox';
 import styles from './CreditCardPhase.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
-import { CreditCardProvider } from '../../../../../CreditCardInfo/CreditCardContext';
-
 
 function CreditCardPhase() {
     const { registerFormRef } = useContext(ProductContextMain);
@@ -20,7 +18,6 @@ function CreditCardPhase() {
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
                         nameContext="cardOwnerName"
-                        // onChange={handleChange}
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -31,7 +28,6 @@ function CreditCardPhase() {
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
                         nameContext="cardNum"
-                        // onChange={handleChange}
                     />
                 </div>
                 <div className={`${styles.row} col col-12`}>
@@ -42,7 +38,6 @@ function CreditCardPhase() {
                         layoutSmall="input-w-sm-full"
                         registerFormRef={registerFormRef}
                         nameContext="cardExpireDate"
-                        // onChange={handleChange}
                     />
                     <InputBox
                         inputLabel="CVC / CCV"
@@ -51,7 +46,6 @@ function CreditCardPhase() {
                         layoutSmall="input-w-sm-s3"
                         registerFormRef={registerFormRef}
                         nameContext="cardCvc"
-                        // onChange={handleChange}
                     />
                 </div>
             </section>

@@ -8,15 +8,11 @@ import { Main } from './components/index';
 function App() {
     return (
         <ProductContextAppProvider>
-                <div className="App">
-                    <Header
-                        icons={icons}
-                    />
-                    <Main
-                        icons={icons}
-                    />
-                    {/* <Footer /> */}
-                </div>
+            <div className="App">
+                <Header icons={icons} />
+                <Main icons={icons} />
+                {/* <Footer /> */}
+            </div>
         </ProductContextAppProvider>
     );
 }
