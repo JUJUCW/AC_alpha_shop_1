@@ -2,7 +2,7 @@ import InputBox from '../InputBox/InputBox';
 import styles from './CreditCardPhase.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../../../ProductContext/ProductContextMain';
-// import { CreditCardContext } from '../../../../../CreditCardInfo/CreditCardContext';
+import { CreditCardProvider } from '../../../../../CreditCardInfo/CreditCardContext';
 
 
 function CreditCardPhase() {
@@ -10,6 +10,7 @@ function CreditCardPhase() {
     // const { handleChange } = useContext(CreditCardContext);
 
     return (
+        <CreditCardProvider>
         <form className="col col-12" dataphase="credit-card">
             <h3 className={styles.formTitle}>付款資訊</h3>
             <section className="form-body col col-12">
@@ -57,6 +58,7 @@ function CreditCardPhase() {
                 </div>
             </section>
         </form>
+        </CreditCardProvider>
     );
 }
 

@@ -3,20 +3,19 @@ import { useContext } from 'react';
 import ProductContextApp from '../../../ProductContext/ProductContextApp';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
-import { CreditCardContext, CardOwnerProvider } from '../../../CreditCardInfo/CreditCardContext';
+import { CreditCardContext, CreditCardProvider } from '../../../CreditCardInfo/CreditCardContext';
 
 function StepBtn() {
+
     const { icons } = useContext(ProductContextApp);
+    // todo must rename for vars
     const { step, onStepBtnChange } = useContext(ProductContextMain);
 
     const {
         creditCardInfo,
-        // test,
-        onSubmit,
+        handleSubmit,
     } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
-    console.log('credit card info', creditCardInfo);
-    // console.log('test', test);
     switch (step) {
         case 1:
             return (
@@ -62,12 +61,9 @@ function StepBtn() {
                     <button
                         className={`${styles.next} cursor-point`}
                         onClick={() => {
-                            console.log('progress 確認下單被點擊');
-                            // onSubmit?.({
-                            //     total: total,
-                            // });
-                            // console.log('progress', total);
-                            onSubmit({total})
+                            handleSubmit?.({
+                                total: total,
+                            });
                         }}
                     >
                         確認下單
@@ -95,11 +91,11 @@ function StepBtn() {
 
 function Progress() {
     return (
-        <CardOwnerProvider>
+        <CreditCardProvider>
             <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
                 <StepBtn />
             </section>
-        </CardOwnerProvider>
+        </CreditCardProvider>
     );
 }
 export default Progress;

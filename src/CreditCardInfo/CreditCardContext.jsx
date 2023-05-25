@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 const CreditCardContext = createContext('');
 
-function CardOwnerProvider({ children }) {
+function CreditCardProvider({ children }) {
     const [creditCardInfo, setCreditCardInfo] = useState({
         cardOwnerName: '',
         cardNum: '',
@@ -10,7 +10,7 @@ function CardOwnerProvider({ children }) {
     });
 
     function handleChange(e) {
-        alert('change');
+        console.log('e', e);
         const { name, value } = e.target;
         setCreditCardInfo((prevCreditCardInfo) => ({
             ...prevCreditCardInfo,
@@ -33,11 +33,11 @@ function CardOwnerProvider({ children }) {
 
     const value = {
         creditCardInfo,
-        onChange: handleChange,
-        onSubmit: handleSubmit,
+        handleChange: handleChange,
+        handleSubmit: handleSubmit,
     };
 
     return <CreditCardContext.Provider value={value}>{children}</CreditCardContext.Provider>;
 }
 
-export { CardOwnerProvider, CreditCardContext };
+export { CreditCardProvider, CreditCardContext };
