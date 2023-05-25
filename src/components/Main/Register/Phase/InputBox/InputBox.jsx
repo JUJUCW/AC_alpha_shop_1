@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CreditCardContext } from '../../../../../CreditCardInfo/CreditCardContext';
 
 function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerFormRef, nameContext }) {
-    const { handleChange } = useContext(CreditCardContext);
+    const { onChange } = useContext(CreditCardContext);
     console.log(registerFormRef);
 
     return (
@@ -16,7 +16,7 @@ function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerF
                     registerFormRef.current.set(inputLabel, node);
                 }}
                 name={nameContext}
-                onChange={(e) => handleChange(e)}
+                onChange={onChange}
             />
         </div>
     );
