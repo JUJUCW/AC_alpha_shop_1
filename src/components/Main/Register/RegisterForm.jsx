@@ -2,7 +2,6 @@ import { AddressPhase, ShippingPhase, CreditCardPhase } from './Phase';
 import styles from './RegisterForm.module.scss';
 import { useContext } from 'react';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
-
 function RegisterForm() {
     const { step } = useContext(ProductContextMain);
     return (

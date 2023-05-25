@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import ProductContextApp from '../../../ProductContext/ProductContextApp';
 import ProductContextMain from '../../../ProductContext/ProductContextMain';
 import CartContext from '../../../ProductContext/CartContext';
-import { CreditCardContext, CreditCardProvider } from '../../../CreditCardInfo/CreditCardContext';
+import { CreditCardContext} from '../../../CreditCardInfo/CreditCardContext';
 
 function StepBtn() {
 
@@ -12,7 +12,6 @@ function StepBtn() {
     const { step, onStepBtnChange } = useContext(ProductContextMain);
 
     const {
-        creditCardInfo,
         handleSubmit,
     } = useContext(CreditCardContext);
     const { total } = useContext(CartContext);
@@ -91,11 +90,9 @@ function StepBtn() {
 
 function Progress() {
     return (
-        <CreditCardProvider>
             <section className={`${styles.progressControlContainer} col col-lg-6 col-sm-12`}>
                 <StepBtn />
             </section>
-        </CreditCardProvider>
     );
 }
 export default Progress;

@@ -7,10 +7,8 @@ import { CreditCardProvider } from '../../../../../CreditCardInfo/CreditCardCont
 
 function CreditCardPhase() {
     const { registerFormRef } = useContext(ProductContextMain);
-    // const { handleChange } = useContext(CreditCardContext);
 
     return (
-        <CreditCardProvider>
         <form className="col col-12" dataphase="credit-card">
             <h3 className={styles.formTitle}>付款資訊</h3>
             <section className="form-body col col-12">
@@ -58,7 +56,6 @@ function CreditCardPhase() {
                 </div>
             </section>
         </form>
-        </CreditCardProvider>
     );
 }
 

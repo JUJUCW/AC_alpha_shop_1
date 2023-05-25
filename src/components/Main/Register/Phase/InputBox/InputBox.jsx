@@ -1,6 +1,6 @@
 import styles from './InputBox.module.scss';
 import { useContext } from 'react';
-import { CreditCardContext, CreditCardProvider } from '../../../../../CreditCardInfo/CreditCardContext';
+import { CreditCardContext} from '../../../../../CreditCardInfo/CreditCardContext';
 
 function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerFormRef, nameContext }) {
     const { handleChange } = useContext(CreditCardContext);
@@ -15,7 +15,8 @@ function InputBox({ inputLabel, placeholder, layoutLarge, layoutSmall, registerF
                     }}
                     name={nameContext}
                     onChange={(e) => {
-                        handleChange?.({e:e});
+                        console.log('input box change')
+                        handleChange?.(e);
                     }}
                 />
             </div>

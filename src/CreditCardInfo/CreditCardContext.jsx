@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect} from 'react';
 const CreditCardContext = createContext('');
 
 function CreditCardProvider({ children }) {
@@ -8,19 +8,22 @@ function CreditCardProvider({ children }) {
         cardExpireDate: '',
         cardCvc: '',
     });
-
+      
     function handleChange(e) {
-        console.log('e', e);
         const { name, value } = e.target;
         setCreditCardInfo((prevCreditCardInfo) => ({
             ...prevCreditCardInfo,
             [name]: value,
         }));
+        console.log(
+            `
+            持卡人姓名： ${creditCardInfo.cardOwnerName}
+            有效期限： ${creditCardInfo.cardExpireDate}
+            CVC : ${creditCardInfo.cardCvc}
+            `
+        );
     }
     function handleSubmit(totalPrice) {
-        console.log('totalPrice', totalPrice);
-        // console.log('CreditCardInfo', creditCardInfo);
-        // console.log('setCreditCardInfo', setCreditCardInfo);
         console.log(
             `
             持卡人姓名： ${creditCardInfo.cardOwnerName}
